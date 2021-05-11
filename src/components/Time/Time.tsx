@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => {
   return {
     time: {
       fontFize: '20px',
-      letterSpacing: '0.2em',
       textTransform: 'uppercase',
       fontFamily: 'Source Sans Pro',
     },

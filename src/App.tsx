@@ -8,10 +8,14 @@ import {
   Toolbar,
   Typography,
   InputBase,
+  Grid,
+  Paper,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import Header from './components/Header';
 import Time from './components/Time/Time';
+import Snack from './components/Snack/Snack';
+import InfoCard from './components/InfoCard/InfoCard';
 
 interface Props { }
 
@@ -30,7 +34,6 @@ const useStyles = makeStyles((theme) => {
     },
     title: {
       fontFize: '20px',
-      letterSpacing: '0.2em',
       textTransform: 'uppercase',
       flexGrow: 1,
       display: 'none',
@@ -38,29 +41,6 @@ const useStyles = makeStyles((theme) => {
         display: 'block',
       },
       fontFamily: 'Source Sans Pro',
-    },
-    search: {
-      position: 'relative',
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: fade(theme.palette.common.white, 0.15),
-      '&:hover': {
-        backgroundColor: fade(theme.palette.common.white, 0.25),
-      },
-      marginLeft: 0,
-      width: '100%',
-      [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(1),
-        width: 'auto',
-      },
-    },
-    searchIcon: {
-      padding: theme.spacing(0, 2),
-      height: '100%',
-      position: 'absolute',
-      pointerEvents: 'none',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
     },
     inputRoot: {
       color: 'inherit',
@@ -80,12 +60,11 @@ const useStyles = makeStyles((theme) => {
     },
     physics: {
       backgroundColor: '#3D508E',
-      minHeight: '400px',
-      fontFize: '20px',
-      letterSpacing: '0.2em',
-      textTransform: 'uppercase',
-      flexGrow: 1,
-      fontFamily: 'Source Sans Pro',
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
     },
   };
 });
@@ -96,6 +75,7 @@ const App: FC<Props> = () => {
   return (
     <div className="App">
       <div className={classes.root}>
+        <Snack message="Welcome to my site!" />
         <AppBar position="static">
           <Toolbar className={classes.header}>
             <IconButton
@@ -106,15 +86,28 @@ const App: FC<Props> = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography className={classes.title} variant="h6" noWrap>
+            <Typography className={classes.title} noWrap>
               Andrew Stagg
             </Typography>
             <Time />
           </Toolbar>
         </AppBar>
-        <div className={classes.physics}>
-          <span>Physics Demo</span>
-        </div>
+        <Grid container
+          direction="row"
+          justify="center"
+          alignItems="center" spacing={1}
+          style={{ paddingTop: '2em' }}
+        >
+          <Grid item xs={6} sm={3}>
+            <InfoCard title="About Me" body="I'm a Software Engineer with a passion for new tech and music production." imageURL="portrat.jpg" />
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <InfoCard title="Max" body="This is Max, the dog with an obsession to tennis balls." imageURL="max.jpg" />
+          </Grid>
+          <Grid item xs={6} sm={3}>
+            <InfoCard title="Max" body="This is Max, the dog with an obsession to tennis balls." imageURL="max.jpg" />
+          </Grid>
+        </Grid>
       </div>
     </div>
   );
