@@ -13,7 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Header from './components/Header';
 import Time from './components/Time/Time';
 
-interface Props {}
+interface Props { }
 
 const useStyles = makeStyles((theme) => {
   return {
