@@ -33,8 +33,9 @@ const useStyles = makeStyles((theme) => {
       marginRight: theme.spacing(2),
     },
     title: {
-      fontFize: '20px',
+      letterSpacing: '0.2em',
       textTransform: 'uppercase',
+      fontFize: '20px',
       flexGrow: 1,
       display: 'none',
       [theme.breakpoints.up('sm')]: {
@@ -75,39 +76,49 @@ const App: FC<Props> = () => {
   return (
     <div className="App">
       <div className={classes.root}>
-        <Snack message="Welcome to my site!" />
-        <AppBar position="static">
-          <Toolbar className={classes.header}>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography className={classes.title} noWrap>
-              Andrew Stagg
-            </Typography>
-            <Time />
-          </Toolbar>
-        </AppBar>
         <Grid container
           direction="row"
           justify="center"
-          alignItems="center" spacing={1}
-          style={{ paddingTop: '2em' }}
+          alignItems="center"
         >
-          <Grid item xs={6} sm={3}>
-            <InfoCard title="About Me" body="I'm a Software Engineer with a passion for new tech and music production." imageURL="portrat.jpg" />
+          <Grid item xs={12}>
+            <Snack message="Welcome to my site!" />
+            <AppBar position="static">
+              <Toolbar className={classes.header}>
+                <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="open drawer"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Typography className={classes.title} noWrap>
+                  Andrew Stagg
+            </Typography>
+                <Time />
+              </Toolbar>
+            </AppBar>
           </Grid>
-          <Grid item xs={6} sm={3}>
-            <InfoCard title="Max" body="This is Max, the dog with an obsession to tennis balls." imageURL="max.jpg" />
-          </Grid>
-          <Grid item xs={6} sm={3}>
-            <InfoCard title="Max" body="This is Max, the dog with an obsession to tennis balls." imageURL="max.jpg" />
+          <Grid container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            style={{ paddingTop: '2em' }}
+            spacing={1}
+          >
+            <Grid item xs={12} sm={6} md={3}>
+              <InfoCard title="About Me" body="I'm a Software Engineer with a passion for new tech and music production." imageURL="portrat.jpg" />
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <InfoCard title="Max" body="This is Max, the dog with an obsession to tennis balls." imageURL="max.jpg" />
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+              <InfoCard title="Box Stacking Game" body="Small box stacking game I've created in college using Box2D." imageURL="box-stacker.png" />
+            </Grid>
           </Grid>
         </Grid>
+
       </div>
     </div>
   );
