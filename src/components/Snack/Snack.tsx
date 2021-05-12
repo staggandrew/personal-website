@@ -13,9 +13,12 @@ const Snack = ({ message }: SnackProps) => {
 
   useEffect(() => {
     setOpen(true);
-  }, [])
+  }, []);
 
-  const handleClose = (event: React.SyntheticEvent | React.MouseEvent, reason?: string) => {
+  const handleClose = (
+    event: React.SyntheticEvent | React.MouseEvent,
+    reason?: string
+  ) => {
     if (reason === 'clickaway') {
       return;
     }
@@ -36,7 +39,12 @@ const Snack = ({ message }: SnackProps) => {
         message={message}
         action={
           <>
-            <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+            <IconButton
+              size="small"
+              aria-label="close"
+              color="inherit"
+              onClick={handleClose}
+            >
               <CloseIcon fontSize="small" />
             </IconButton>
           </>
@@ -44,6 +52,6 @@ const Snack = ({ message }: SnackProps) => {
       />
     </div>
   );
-}
+};
 
-export default Snack
+export default Snack;

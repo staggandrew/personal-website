@@ -16,8 +16,9 @@ import Header from './components/Header';
 import Time from './components/Time/Time';
 import Snack from './components/Snack/Snack';
 import InfoCard from './components/InfoCard/InfoCard';
+import DescriptionDialog from './components/DescriptionDialog/DescriptionDialog';
 
-interface Props { }
+interface Props {}
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -76,11 +77,7 @@ const App: FC<Props> = () => {
   return (
     <div className="App">
       <div className={classes.root}>
-        <Grid container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
+        <Grid container direction="row" justify="center" alignItems="center">
           <Grid item xs={12}>
             <Snack message="Welcome to my site!" />
             <AppBar position="static">
@@ -95,12 +92,13 @@ const App: FC<Props> = () => {
                 </IconButton>
                 <Typography className={classes.title} noWrap>
                   Andrew Stagg
-            </Typography>
+                </Typography>
                 <Time />
               </Toolbar>
             </AppBar>
           </Grid>
-          <Grid container
+          <Grid
+            container
             direction="row"
             justify="center"
             alignItems="center"
@@ -108,17 +106,28 @@ const App: FC<Props> = () => {
             spacing={1}
           >
             <Grid item xs={12} sm={6} md={3}>
-              <InfoCard title="About Me" body="I'm a Software Engineer with a passion for new tech and music production." imageURL="portrat.jpg" />
+              <InfoCard
+                title="About Me"
+                body="I'm a Software Engineer with a passion for new tech and music production."
+                imageURL="portrat.jpg"
+              />
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
-              <InfoCard title="Max" body="This is Max, the dog with an obsession to tennis balls." imageURL="max.jpg" />
+              <InfoCard
+                title="Max"
+                body="This is Max, the dog with an obsession to tennis balls."
+                imageURL="max.jpg"
+              />
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
-              <InfoCard title="Box Stacking Game" body="Small box stacking game I've created in college using Box2D." imageURL="box-stacker.png" />
+              <InfoCard
+                title="Box Stacking Game"
+                body="Small box stacking game I've created in college using Box2D."
+                imageURL="box-stacker.png"
+              />
             </Grid>
           </Grid>
         </Grid>
-
       </div>
     </div>
   );
